@@ -1,0 +1,20 @@
+.btn {
+    color: white;
+    background-color: brown;
+}
+
+.carousel-item>img {
+    max-height: 40vh;
+}
+
+.navbar {
+    background-color: white;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: red;
+}
+
+.nav-link:hover {
+    background-color: brown;
+}
