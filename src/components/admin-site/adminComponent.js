@@ -16,6 +16,8 @@ export default function AdminComponent() {
 const [blogs,setBlogs]=useState([]);
 const { register, handleSubmit, watch, formState: { errors } } = useForm();
 
+
+
 const Fetchdata = ()=>{
     FirebaseService.getAll().get().then((querySnapshot) => {
          
@@ -30,6 +32,12 @@ const Fetchdata = ()=>{
     })
 }
 
+
+const handleDelete = (id)=>{
+  alert(id)
+ FirebaseService.remove(id)
+}
+
 useEffect(() => {
     Fetchdata();
   }, [] )
@@ -39,9 +47,6 @@ useEffect(() => {
 
 const onSubmit = data => FirebaseService.create(data);
 
-const handleDelete = (id)=>{
-    FirebaseService.remove(id)
-}
 
 
 
@@ -72,7 +77,7 @@ const handleDelete = (id)=>{
             <div className="blog-container" key={blog.id}>
               <h4>{blog.title}</h4>
               <p>{blog.description}</p>
-              <Button onClick={handleDelete(blog.id)}>delte</Button>
+              <Button onClick={handleDelete(blog.id)}>delete</Button>
               <Button>Edit</Button>
             </div>
           )
